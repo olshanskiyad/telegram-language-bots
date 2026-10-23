@@ -1,0 +1,24 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+# Тесты гоняют simulate.py и test_bot.py на тестовых данных (tests/smoke.py в каждом боте) внутри
+# Docker-образа бота: там уже есть Python, зависимости и ffmpeg. Словари и озвучка не скачиваются.
+jobs:
+  japanese:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t language-bot-japanese ./japanese
+      - run: docker run --rm language-bot-japanese python tests/smoke.py
+
+  thai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t language-bot-thai ./thai
+      - run: docker run --rm language-bot-thai python tests/smoke.py

@@ -1,0 +1,4 @@
+# Проверенные версии (edge-tts для озвучки, см. NOTICE). Python 3.12, нужен ещё ffmpeg.
+python-telegram-bot==22.7
+edge-tts==7.3.1
+PyYAML==6.0.3

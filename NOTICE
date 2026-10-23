@@ -1,0 +1,110 @@
+NOTICE / Сторонние материалы и их лицензии
+
+This file lists the third-party data, fonts, packages and services the bots use, and their licenses.
+All licenses were checked against the official pages of the sources on 2026-10-22.
+Этот файл перечисляет сторонние данные, шрифты, пакеты и сервисы, которые используют боты, и их лицензии.
+Лицензии сверены по официальным страницам источников 22.10.2026.
+
+The code and the hand-written course texts of this repository (japanese/content, thai/content, except the part
+named in section 6) are MIT, see LICENSE.
+Код и написанные вручную тексты курсов этого репозитория (japanese/content, thai/content, кроме части из раздела 6)
+под лицензией MIT, см. LICENSE.
+
+This repository does NOT contain dictionaries, sentences, fonts or audio. fetch_data.py and fetch_native.py download
+them to your computer and build.py generates bank.json / course.json, images and audio from them. Each source has its
+own terms. The built data contain material from these sources: if you publish or sell built data (or a service that
+shows them), follow the terms below.
+В репозитории НЕТ словарей, фраз, шрифтов и озвучки. Их скачивают на ваш компьютер fetch_data.py и fetch_native.py,
+а build.py собирает из них bank.json / course.json, картинки и озвучку. У каждого источника свои условия. Собранные
+данные содержат материал этих источников: публикуя их (или сервис, который их показывает), соблюдайте условия ниже.
+
+
+1. JMdict, KANJIDIC2, KRADFILE (japanese)
+
+   Source / источник: Electronic Dictionary Research and Development Group (EDRDG), https://www.edrdg.org/
+   Files / файлы: JMdict.gz and kradfile.gz from http://ftp.edrdg.org/pub/Nihongo/, kanjidic2.xml.gz from
+   https://www.edrdg.org/kanjidic/
+   License / лицензия: Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0),
+   https://www.edrdg.org/edrdg/licence.html (the statement covers JMdict, KANJIDIC2 and RADKFILE/KRADFILE).
+   Used for / зачем: readings and Russian and English meanings of words, readings of kanji, kanji components
+   (japanese/build.py, japanese/jdict.py).
+   Acknowledgement / указание источника: the Japanese bot uses the JMdict, KANJIDIC2 and KRADFILE files of the
+   Electronic Dictionary Research and Development Group, under the Group's licence
+   (https://www.edrdg.org/edrdg/licence.html). Бот использует файлы JMdict, KANJIDIC2 и KRADFILE группы EDRDG
+   на условиях её лицензии.
+   Note / важно: the licence statement says that the non-English translations in JMdict (the Russian meanings among
+   them) are covered by a separate copyright of their compilers. Share-alike: data derived from these files (the
+   dictionary indexes and bank.json in japanese/data) must stay under CC BY-SA 4.0 if you distribute them.
+   Не-английские переводы в JMdict (в том числе русские) защищены отдельным авторским правом их составителей. Данные,
+   полученные из этих файлов (индексы и bank.json), при распространении остаются под CC BY-SA 4.0.
+
+2. JLPT word and kanji lists N5-N3 (japanese)
+
+   Author / автор: Jonathan Waller, https://www.tanos.co.uk/jlpt/
+   License / лицензия: Creative Commons "BY" (attribution; commercial use allowed). The version of the licence is not
+   stated. The page "Sharing and copyrights" says: "Everything on this site (that I'm not selling), is licenced under
+   Creative Commons BY ... use anything here however you like (commercial or non-commercial), but credit my site."
+   The site did not answer on 2026-10-22; the archived page is
+   http://web.archive.org/web/2026/http://www.tanos.co.uk/jlpt/sharing/
+   Fetched as CSV from two public repositories (fixed commits are in japanese/fetch_data.py):
+   - vocabulary: github.com/jamsinclair/open-anki-jlpt-decks, src/n5.csv ... n3.csv (MIT)
+   - kanji: github.com/Bluskyo/JLPT_Vocabulary, data/kanji/parsedData/n5_kanji.csv ... n3_kanji.csv (MIT)
+   Данные списков Джонатана Уоллера, лицензия CC BY (версия не указана), нужно указать автора.
+
+3. Tatoeba (japanese)
+
+   Source / источник: https://tatoeba.org/, exports from https://downloads.tatoeba.org/exports/
+   Files / файлы: jpn_sentences, rus_sentences, jpn-rus_links, jpn_transcriptions, sentences_with_audio; recordings
+   from https://tatoeba.org/en/audio/download/<id>
+   License / лицензия: sentences, translations and transcriptions: CC BY 2.0 FR (part of the sentences also CC0 1.0),
+   https://tatoeba.org/en/downloads. Many Japanese and English sentences come from the Tanaka Corpus (public domain).
+   Audio: the licence of each recording is chosen by its contributor and is listed in sentences_with_audio.csv.
+   Recordings with an empty licence may not be reused outside Tatoeba.
+   Used for / зачем: the "Слух" trainer. The bot uses only recordings under CC BY 4.0 and CC BY-NC 4.0 and shows the
+   speaker and the licence under every recording. CC BY-NC means non-commercial use only: do not run a commercial
+   service with these recordings. Бот берёт только записи под CC BY 4.0 и CC BY-NC 4.0 и подписывает диктора и лицензию.
+   CC BY-NC разрешает только некоммерческое использование.
+
+4. Klee One font (japanese)
+
+   Author / автор: Fontworks Inc., Copyright 2020 The Klee Project Authors (https://github.com/fontworks-fonts/Klee)
+   License / лицензия: SIL Open Font License 1.1, https://openfontlicense.org/ (the OFL.txt that comes with the font in
+   github.com/google/fonts/tree/main/ofl/kleeone is downloaded together with it into japanese/data/build/fonts).
+   Used for / зачем: drawing the pictures of kana and kanji (japanese/azbuka.py). The font is not included in the
+   repository. Шрифт в репозиторий не входит, его скачивает fetch_data.py.
+
+5. Wiktionary through kaikki.org (thai)
+
+   Source / источник: English Wiktionary, processed by Wiktextract and published on https://kaikki.org/
+   (https://kaikki.org/dictionary/Thai/kaikki.org-dictionary-Thai.jsonl)
+   License / лицензия: the text of Wiktionary is dual-licensed under CC BY-SA 4.0 and the GNU Free Documentation
+   License, https://en.wiktionary.org/wiki/Wiktionary:Copyrights
+   Used for / зачем: Paiboon transcription of every Thai word of the course and the word meanings in the build report
+   (thai/thaidict.py, thai/build.py). kaikki.org asks to cite, for academic use, Tatu Ylonen: "Wiktextract: Wiktionary
+   as Machine-Readable Structured Data", Proceedings of LREC 2022, pp. 1317-1325, and to link to https://kaikki.org.
+   Share-alike: the built course.json contains transcriptions taken from Wiktionary and stays under CC BY-SA 4.0
+   if you distribute it. Собранный course.json содержит транскрипции из Викисловаря: при распространении CC BY-SA 4.0.
+
+6. Phrases from voreioai/thai-app (thai)
+
+   Source / источник: https://github.com/voreioai/thai-app
+   License / лицензия: MIT, Copyright (c) 2026 voreioai. The full text is kept in thai/content/THAI_APP_LICENSE.txt.
+   Used for / зачем: part of the phrases and dialogues in thai/content. Часть фраз и диалогов в thai/content.
+
+7. Speech synthesis (both bots)
+
+   The voices (Microsoft neural voices ja-JP-NanamiNeural, ja-JP-KeitaNeural, th-TH-NiwatNeural,
+   th-TH-PremwadeeNeural) are produced through the unofficial read-aloud channel of Microsoft Edge by the edge-tts
+   package. This is not an official API: Microsoft may change or close it, and Microsoft's own terms for synthesized
+   speech apply independently of the licence of this repository. The official service with the same voices is
+   Azure AI Speech (it has a free tier). Канал неофициальный: Microsoft может его изменить или закрыть, условия
+   Microsoft на синтезированную речь действуют независимо от лицензии репозитория.
+
+8. Python packages (installed by pip, not included in the repository)
+
+   - edge-tts (rany2): LGPL-3.0 (the file srt_composer.py inside it is MIT). The bots import the installed package;
+     its source is not copied here.
+   - python-telegram-bot: LGPL-3.0-only
+   - Pillow (japanese): MIT-CMU (HPND)
+   - PyYAML (thai): MIT
+   Their own dependencies have their own licences.

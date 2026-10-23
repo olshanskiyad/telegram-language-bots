@@ -1,0 +1,19 @@
+# Два независимых бота. Нужен только тот, который вы хотите запустить: docker compose up -d --build japanese-bot
+# Сначала скопируйте <бот>/.env.example в <бот>/.env и заполните, затем подготовьте данные (см. README):
+#   docker compose run --rm japanese-bot sh -c "python fetch_data.py && python build.py --audio"
+services:
+  japanese-bot:
+    build: ./japanese
+    restart: unless-stopped
+    env_file: ./japanese/.env
+    volumes:
+      - ./japanese/data:/app/data
+      - ./japanese/logs:/app/logs
+
+  thai-bot:
+    build: ./thai
+    restart: unless-stopped
+    env_file: ./thai/.env
+    volumes:
+      - ./thai/data:/app/data
+      - ./thai/logs:/app/logs
